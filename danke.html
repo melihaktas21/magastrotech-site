@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danke – MA GastroTech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .ring-soft {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center px-6">
+    
+    <!-- Background Glow -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-44 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-orange-500/10 blur-3xl"></div>
+    </div>
+
+    <div class="glass max-w-lg w-full rounded-3xl p-10 text-center ring-soft">
+      
+      <div class="text-5xl mb-4">✅</div>
+
+      <h1 class="text-3xl font-semibold">Vielen Dank!</h1>
+
+      <p class="mt-4 text-slate-300 leading-relaxed">
+        Ihre Nachricht wurde erfolgreich übermittelt.
+        <br />
+        Wir melden uns so schnell wie möglich bei Ihnen.
+      </p>
+
+      <div class="mt-8">
+        <a
+          href="/"
+          class="inline-block rounded-2xl bg-emerald-500 px-6 py-3 font-semibold text-slate-950 hover:bg-emerald-400 transition"
+        >
+          Zurück zur Startseite
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-400">
+        MA GastroTech – Restaurant Bestellsystem
+      </p>
+    </div>
+
+  </body>
+</html>

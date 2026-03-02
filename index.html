@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MA GastroTech – Restaurant Bestellsystem</title>
+    <meta
+      name="description"
+      content="Telefonbestellungen in Sekunden: Kundenerkennung per Nummer, Call Queue, Quittung & Küchen-Druck, Umsatzübersicht. Installierbar auf jedem Windows-PC – ohne extra POS-Gerät."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .ring-soft {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      }
+      .shadow-soft {
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-950 text-slate-100">
+    <!-- Background -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div
+        class="absolute -top-44 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl"
+      ></div>
+      <div class="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-orange-500/10 blur-3xl"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]"></div>
+    </div>
+
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="#" class="flex items-center gap-3">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 ring-soft">🍕</div>
+          <div class="leading-tight">
+            <div class="text-base font-semibold">MA GastroTech</div>
+            <div class="text-xs text-slate-300">Restaurant Bestellsystem</div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm text-slate-200 md:flex">
+          <a class="hover:text-white" href="#screens">Screens</a>
+          <a class="hover:text-white" href="#features">Funktionen</a>
+          <a class="hover:text-white" href="#how">Ablauf</a>
+          <a class="hover:text-white" href="#migration">Datenübernahme</a>
+          <a class="hover:text-white" href="#vision">Vision</a>
+          <a
+            class="rounded-xl bg-emerald-500 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-400"
+            href="#contact"
+            >Kontakt</a
+          >
+        </nav>
+
+        <button id="mobileMenuBtn" class="rounded-xl bg-white/10 px-3 py-2 text-sm ring-soft md:hidden">Menü</button>
+      </div>
+
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-slate-950/90 md:hidden">
+        <div class="mx-auto grid max-w-6xl gap-2 px-5 py-4 text-sm">
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#screens">Screens</a>
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#features">Funktionen</a>
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#how">Ablauf</a>
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#migration">Datenübernahme</a>
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#vision">Vision</a>
+          <a class="rounded-xl bg-emerald-500 px-3 py-2 font-semibold text-slate-950" href="#contact">Kontakt</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 pb-16 pt-10 md:pt-14">
+      <!-- HERO -->
+      <section class="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200 ring-soft">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            Schnell • Stabil • Für Telefonbestellungen optimiert
+          </div>
+
+          <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            Telefonbestellungen in Sekunden – <span class="text-emerald-300">ohne Chaos</span>
+          </h1>
+
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-slate-200">
+            MA GastroTech erkennt Kunden per Telefonnummer, unterstützt Stoßzeiten mit Call Queue, verwaltet Produkte/Extras,
+            druckt Belege und zeigt Umsätze übersichtlich an.
+          </p>
+
+          <div class="mt-4 max-w-xl text-sm text-slate-300">
+            ✅ Installierbar auf jedem <b>Windows-PC</b> • ✅ Kein extra POS-Gerät nötig • ✅ Lokale Daten (keine Cloud-Pflicht)
+          </div>
+
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact"
+              class="rounded-2xl bg-emerald-500 px-6 py-3 text-center font-semibold text-slate-950 hover:bg-emerald-400"
+            >
+              Kontakt per E-Mail
+            </a>
+            <a
+              href="#how"
+              class="rounded-2xl bg-white/10 px-6 py-3 text-center font-semibold text-slate-100 ring-soft hover:bg-white/15"
+            >
+              So funktioniert’s
+            </a>
+          </div>
+
+          <div class="mt-7 grid max-w-xl grid-cols-3 gap-3 text-center text-xs text-slate-300">
+            <div class="rounded-2xl bg-white/5 p-3 ring-soft">
+              <div class="text-lg font-semibold text-slate-100">1–2s</div>
+              Kunde finden
+            </div>
+            <div class="rounded-2xl bg-white/5 p-3 ring-soft">
+              <div class="text-lg font-semibold text-slate-100">Call Queue</div>
+              Stoßzeiten
+            </div>
+            <div class="rounded-2xl bg-white/5 p-3 ring-soft">
+              <div class="text-lg font-semibold text-slate-100">Druck</div>
+              Küche & Kasse
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-3 shadow-soft">
+          <img src="assets/siparissayfasi.png" alt="Bestellungen" class="w-full rounded-2xl" />
+          <div class="mt-3 flex items-center justify-between px-2 text-xs text-slate-300">
+            <span>Bestellungen – Warenkorb & Produkte</span>
+            <span class="rounded-full bg-white/10 px-2 py-1 ring-soft">Live UI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST / PROOF -->
+      <section class="mt-16">
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="glass rounded-3xl p-6">
+            <div class="text-2xl">✅</div>
+            <div class="mt-3 text-lg font-semibold">Praktisch & schnell</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Entwickelt für echte Telefonprozesse: kurze Wege, klare Buttons, schneller Abschluss.
+            </p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <div class="text-2xl">🖥️</div>
+            <div class="mt-3 text-lg font-semibold">Kein extra POS nötig</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Läuft auf jedem normalen Windows-PC. Sie brauchen keine spezielle Kassen-Hardware.
+            </p>
+          </div>
+          <div class="glass rounded-3xl p-6">
+            <div class="text-2xl">🔒</div>
+            <div class="mt-3 text-lg font-semibold">Lokal & kontrollierbar</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Daten bleiben lokal im Restaurant. Backups/Export möglich – Sie behalten die Kontrolle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREENS -->
+      <section id="screens" class="mt-20">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-3xl font-semibold">Screenshots</h2>
+            <p class="mt-2 text-slate-300">Einblicke in die wichtigsten Bereiche.</p>
+          </div>
+          <a
+            href="#contact"
+            class="hidden rounded-2xl bg-white/10 px-4 py-2 text-sm font-semibold ring-soft hover:bg-white/15 md:inline-block"
+          >
+            Kontakt
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <div class="glass rounded-3xl p-3">
+            <img src="assets/musteriolusutrma.png" class="w-full rounded-2xl" alt="Eingehender Anruf" />
+            <div class="mt-3 px-2 text-sm text-slate-200">Eingehender Anruf → Kunde anlegen</div>
+            <div class="mt-1 px-2 text-xs text-slate-400">Nummer erkannt, Daten speichern, weiter zur Bestellung.</div>
+          </div>
+
+          <div class="glass rounded-3xl p-3">
+            <img src="assets/sonsiparisler.png" class="w-full rounded-2xl" alt="Letzte Bestellungen" />
+            <div class="mt-3 px-2 text-sm text-slate-200">Letzte Bestellungen & Umsatzübersicht</div>
+            <div class="mt-1 px-2 text-xs text-slate-400">Übersicht nach Zeitraum (Heute/Woche/Monat/Jahr).</div>
+          </div>
+
+          <div class="glass rounded-3xl p-3 md:col-span-2">
+            <img src="assets/sekmeler.png" class="w-full max-h-[360px] object-contain rounded-2xl" alt="Navigation" />
+            <div class="mt-3 px-2 text-sm text-slate-200">Navigation & Sprache</div>
+            <div class="mt-1 px-2 text-xs text-slate-400">Einfach, logisch, mehrsprachig.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features" class="mt-20">
+        <h2 class="text-3xl font-semibold">Funktionen</h2>
+        <p class="mt-2 text-slate-300">
+          Alles, was ein Telefon-Restaurant braucht – ohne unnötigen Ballast. Fokus auf Geschwindigkeit und Übersicht.
+        </p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">📞</div>
+            <div class="mt-3 text-lg font-semibold">Kundenerkennung</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Telefonnummer → Kundendaten automatisch laden oder neu anlegen. Keine doppelte Arbeit.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">⏳</div>
+            <div class="mt-3 text-lg font-semibold">Call Queue</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Warteliste für Stoßzeiten: Anrufe sammeln, nacheinander bearbeiten, kein Kundenwechsel-Chaos.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">🧾</div>
+            <div class="mt-3 text-lg font-semibold">Druck & Belege</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Quittung/Küchenbon direkt drucken. Mehrere Drucker/Stationen je nach Workflow möglich.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">🧠</div>
+            <div class="mt-3 text-lg font-semibold">Extras & Notizen</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Extras, Varianten und Notizen direkt im Warenkorb bearbeiten – schnell während dem Telefonat.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">📊</div>
+            <div class="mt-3 text-lg font-semibold">Umsatz & Verlauf</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Bestellverlauf und Umsatzübersicht nach Zeitraum. Schnelle Kontrolle ohne Excel.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">🌍</div>
+            <div class="mt-3 text-lg font-semibold">Mehrsprachig</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Deutsch/Türkisch (erweiterbar). Ideal, wenn Team mehrsprachig arbeitet.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 glass rounded-3xl p-7">
+          <div class="grid gap-6 md:grid-cols-3 md:items-center">
+            <div class="md:col-span-2">
+              <div class="text-lg font-semibold">Kein Spezialgerät nötig</div>
+              <p class="mt-2 text-sm text-slate-300">
+                MA GastroTech ist eine Desktop-Lösung und kann auf einem vorhandenen Windows-PC installiert werden. Sie benötigen keinen
+                speziellen POS-Terminal. Wenn Sie bereits einen PC und einen Drucker haben, kann das reichen.
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slate-200">
+                <li>✅ Windows-PC (vorhanden)</li>
+                <li>✅ Optional: Drucker (Kasse/Küche)</li>
+                <li>✅ Optional: VoIP/SIP Setup (abhängig vom Telefonanbieter)</li>
+              </ul>
+            </div>
+            <div class="rounded-2xl bg-emerald-500/10 p-5 ring-soft">
+              <div class="text-sm font-semibold text-emerald-200">Kurz gesagt</div>
+              <p class="mt-2 text-sm text-slate-200">Installieren → Telefonworkflow schneller machen → weniger Fehler → mehr Überblick.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW -->
+      <section id="how" class="mt-20">
+        <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold">So funktioniert MA GastroTech</h2>
+            <p class="mt-2 text-slate-300">Vom Anruf bis zum Druck – ein klarer Ablauf, optimiert für Geschwindigkeit.</p>
+          </div>
+          <div class="text-xs text-slate-400">Lokal im Restaurant • Keine Cloud-Pflicht • Optimiert für Telefon</div>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">📞</div>
+            <div class="mt-3 text-lg font-semibold">1) Anruf kommt rein</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Bei einem VoIP/SIP-Setup kann die Telefonnummer automatisch erkannt und an die Oberfläche übergeben werden.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">👤</div>
+            <div class="mt-3 text-lg font-semibold">2) Kunde wird geladen</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Existiert die Nummer bereits, erscheinen Name/Adresse/PLZ sofort. Wenn nicht, legen Sie den Kunden in Sekunden an.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6">
+            <div class="text-3xl">🧾</div>
+            <div class="mt-3 text-lg font-semibold">3) Bestellung & Druck</div>
+            <p class="mt-2 text-sm text-slate-300">
+              Produkte & Extras → Bestellung abschließen → Quittung/Küchenbon drucken. Alles bleibt im Verlauf & in der Umsatzübersicht.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <div class="glass rounded-3xl p-8">
+            <h3 class="text-xl font-semibold">VoIP/SIP (optional)</h3>
+            <p class="mt-3 text-sm text-slate-300">
+              Wenn Ihr Restaurant über VoIP telefoniert, kann die Anrufernummer automatisch erkannt werden. Das spart Zeit und reduziert
+              Fehler bei der Kundensuche.
+            </p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200">
+              <li>✅ Eingehende Nummer übernehmen</li>
+              <li>✅ Nummern-Format normalisieren (z.B. +41 → 0…)</li>
+              <li>✅ Anrufhistorie (wer hat wann angerufen)</li>
+              <li>✅ Call Queue für Stoßzeiten</li>
+            </ul>
+            <p class="mt-4 text-xs text-slate-400">
+              Hinweis: VoIP/SIP Integration hängt vom Setup ab. Das System läuft auch ohne Telefonintegration – dann wird die Nummer manuell erfasst.
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-8">
+            <h3 class="text-xl font-semibold">Stabiler Betrieb (Windows)</h3>
+            <p class="mt-3 text-sm text-slate-300">
+              Die App läuft lokal. Das bedeutet: schnelle Reaktionen, keine Abhängigkeit von Cloud, ideal für Restaurants, die einfach arbeiten wollen.
+            </p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200">
+              <li>✅ Installation auf vorhandenem Windows-PC</li>
+              <li>✅ Lokale Datenbank (schnell, offline-tauglich)</li>
+              <li>✅ Optional: Drucker-Setups für Küche/Kasse</li>
+              <li>✅ Backups/Export möglich</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MIGRATION -->
+      <section id="migration" class="mt-20">
+        <div class="glass rounded-3xl p-8 md:p-10">
+          <div class="grid gap-10 md:grid-cols-2 md:items-start">
+            <div>
+              <h2 class="text-3xl font-semibold">Alte Kunden nicht verlieren</h2>
+              <p class="mt-3 text-slate-200">
+                Viele Restaurants wechseln ungern das System, weil sie Angst haben ihre Kundendaten zu verlieren. Bei MA GastroTech ist
+                genau das ein Fokus: <span class="text-emerald-300">Ihre bestehenden Kunden können übernommen werden.</span>
+              </p>
+
+              <div class="mt-6 space-y-4">
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">✅ Datenübernahme / Import</div>
+                  <p class="mt-1 text-sm text-slate-300">
+                    Wenn Sie bereits eine Kundenliste haben (z.B. Excel/CSV), übernehmen wir Name, Telefonnummer, Adresse, PLZ und Notizen.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">✅ Lokale Daten – volle Kontrolle</div>
+                  <p class="mt-1 text-sm text-slate-300">Die Daten bleiben lokal im Restaurant. Keine Cloud-Pflicht, kein Vendor-Lock-in.</p>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">✅ Backup & Export möglich</div>
+                  <p class="mt-1 text-sm text-slate-300">Auf Wunsch richten wir automatische Backups ein. Export ist möglich.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold">Typische Datenquellen</h3>
+              <p class="mt-2 text-sm text-slate-300">Wir können Daten aus verschiedenen Quellen übernehmen – schnell und pragmatisch.</p>
+
+              <div class="mt-5 grid gap-4">
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">📄 Excel / CSV</div>
+                  <p class="mt-1 text-sm text-slate-300">Kundenliste aus Office/Google Sheets.</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">🗂️ Export aus altem System</div>
+                  <p class="mt-1 text-sm text-slate-300">Wenn Ihr aktuelles System exportieren kann, übernehmen wir das Format.</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">🧾 Notizen / Telefonbuch</div>
+                  <p class="mt-1 text-sm text-slate-300">Auch einfache Listen können wir strukturieren und importieren.</p>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-2xl bg-emerald-500/10 p-4 ring-soft">
+                <div class="text-sm font-semibold text-emerald-200">Wichtig</div>
+                <p class="mt-1 text-sm text-slate-200">
+                  Vor der Übernahme prüfen wir kurz die Datenqualität (Telefonformat/PLZ). Danach ist alles sauber im System.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISION -->
+      <section id="vision" class="mt-20">
+        <div class="glass rounded-3xl p-8 md:p-10">
+          <div class="grid gap-10 md:grid-cols-2 md:items-start">
+            <div>
+              <h2 class="text-3xl font-semibold">Vision</h2>
+              <p class="mt-3 text-slate-200">
+                MA GastroTech soll eine der <span class="text-emerald-300">schnellsten Telefon-Bestelloberflächen</span> für Restaurants werden:
+                klare UI, lokale Kontrolle, starke Integrationen und ein Workflow, der im Alltag funktioniert.
+              </p>
+
+              <div class="mt-6 grid gap-4">
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">Next Steps</div>
+                  <div class="mt-1 text-sm text-slate-300">
+                    • Rollen/Permissions • Erweiterte Analytics • Multi-Station Workflows • Optional Online-Integration
+                  </div>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">Ziel</div>
+                  <div class="mt-1 text-sm text-slate-300">
+                    Weniger Fehler am Telefon, schnellerer Abschluss und bessere Übersicht für Betreiber.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold">Für wen ist das?</h3>
+              <div class="mt-4 grid gap-4">
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">Restaurants</div>
+                  <p class="mt-1 text-sm text-slate-300">Schneller aufnehmen, weniger Stress, saubere Abläufe.</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">Portfolio</div>
+                  <p class="mt-1 text-sm text-slate-300">Ein reales Produkt mit echter Nutzung und Engineering-Tiefe.</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft">
+                  <div class="text-sm font-semibold">Partner</div>
+                  <p class="mt-1 text-sm text-slate-300">Interessant für Druck-/VoIP-/IT-Partner im Gastro-Bereich.</p>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-2xl bg-white/5 p-4 ring-soft">
+                <div class="text-sm font-semibold">Transparenz</div>
+                <p class="mt-1 text-sm text-slate-300">
+                  Preise und Setup werden individuell per E-Mail geklärt, passend zu Ihrem Restaurant (Drucker/Telefon/Workflow).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="mt-20">
+        <div class="glass rounded-3xl p-8 md:p-10">
+          <div class="grid gap-10 md:grid-cols-2 md:items-start">
+            <div>
+              <h2 class="text-3xl font-semibold">Kontakt</h2>
+              <p class="mt-3 text-slate-300">
+                Für eine Anfrage genügt eine kurze Nachricht mit Restaurantname, Stadt, ca. Bestellungen/Tag und Ihrem aktuellen Setup (Drucker/Telefon).
+              </p>
+
+              <div class="mt-6 grid gap-3">
+                <a
+                  class="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-3 font-semibold text-slate-950 hover:bg-emerald-400"
+                  href="mailto:info@magastrotech.ch?subject=Anfrage%20MA%20GastroTech&body=Hallo%2C%0A%0ARestaurantname%3A%20%0AStadt%3A%20%0ABestellungen%2FTag%3A%20%0ASetup%20(Drucker%2FTelefon)%3A%20%0A%0ANachricht%3A%20"
+                >
+                  E-Mail senden
+                </a>
+
+                <div class="rounded-2xl bg-white/5 p-4 ring-soft text-sm text-slate-300">
+                  <div class="font-semibold text-slate-200">Optional mitschicken</div>
+                  <ul class="mt-2 space-y-1">
+                    <li>• Haben Sie eine Kundenliste (Excel/CSV)?</li>
+                    <li>• Wollen Sie Küche & Kasse getrennt drucken?</li>
+                    <li>• Nutzen Sie VoIP/Internet-Telefonie?</li>
+                  </ul>
+                </div>
+
+                <p class="mt-2 text-xs text-slate-400">
+                  Hinweis: Diese Website ist eine Produktübersicht. Details (Setup, Datenübernahme, Drucker) klären wir per E-Mail.
+                </p>
+              </div>
+            </div>
+
+            <!-- FORMSPREE FORM (real lead emails) -->
+            <form
+              action="https://formspree.io/f/xreavvan"
+              method="POST"
+              class="grid gap-4"
+            >
+              <!-- redirect after submit (make sure danke.html exists in same folder) -->
+              <input type="hidden" name="_next" value="/danke.html" />
+              <!-- spam honeypot -->
+              <input type="text" name="_gotcha" style="display:none" />
+
+              <input
+                name="restaurant"
+                required
+                class="rounded-2xl bg-slate-900/60 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-emerald-500/60"
+                placeholder="Name / Restaurant"
+              />
+
+              <input
+                name="email"
+                type="email"
+                required
+                class="rounded-2xl bg-slate-900/60 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-emerald-500/60"
+                placeholder="E-Mail"
+              />
+
+              <input
+                name="phone"
+                type="tel"
+                class="rounded-2xl bg-slate-900/60 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-emerald-500/60"
+                placeholder="Telefon (optional)"
+              />
+
+              <textarea
+                name="message"
+                required
+                rows="5"
+                class="rounded-2xl bg-slate-900/60 px-4 py-3 outline-none ring-1 ring-white/10 focus:ring-emerald-500/60"
+                placeholder="Nachricht"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="rounded-2xl bg-emerald-500 px-6 py-3 font-semibold text-slate-950 hover:bg-emerald-400"
+              >
+                Nachricht senden
+              </button>
+
+              <p class="text-xs text-slate-400">
+                Hinweis: Versand läuft über Formspree (kein eigenes Backend nötig).
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-16 border-t border-white/10 py-8 text-sm text-slate-400">
+        <div class="flex flex-col justify-between gap-3 md:flex-row md:items-center">
+          <div>© <span id="year"></span> MA GastroTech • Switzerland</div>
+          <div class="flex gap-4">
+            <a class="hover:text-slate-200" href="#how">Ablauf</a>
+            <a class="hover:text-slate-200" href="#migration">Datenübernahme</a>
+            <a class="hover:text-slate-200" href="#contact">Kontakt</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const btn = document.getElementById("mobileMenuBtn");
+      const menu = document.getElementById("mobileMenu");
+      btn?.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
